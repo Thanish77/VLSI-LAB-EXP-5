@@ -9,6 +9,7 @@ Xilinx 14.7
 Spartan6 FPGA
 
 **PROCEDURE: **
+~~~
 STEP:1 Start the Xilinx navigator, Select and Name the New project.
 STEP:2 Select the device family, device, package and speed. 
 STEP:3 Select new source in the New Project and select Verilog Module as the Source type. 
@@ -20,22 +21,56 @@ STEP:8 Select Check Syntax from the Synthesize XST Process. Double Click in the 
 STEP:9 In the Design Object List Window, enter the pin location for each pin in the Loc column Select save from the File menu. 
 STEP:10 Double click on the Implement Design and double click on the Generate Programming File to create a bitstream of the design.(.v) file is converted into .bit file here. 
 STEP:11 On the board, by giving required input, the LEDs starts to glow light, indicating the output.
-STEP:12 Load the Bit file into the SPARTAN 6 FPGA 
+STEP:12 Load the Bit file into the SPARTAN 6 FPGA
+~~~
 
-Logic Diagram :
+# Logic Diagram :
 
 ![image](https://github.com/navaneethans/VLSI-LAB-EXP-5/assets/6987778/34ec5d63-2b3b-4511-81ef-99f4572d5869)
 
 
-VERILOG CODE:
+# VERILOG CODE:
+~~~
+module fsm_moore(clk, rst, x, z);
+input clk, rst, x;
+output z;
+reg  [1:0]present_state, next_state; 
+parameter s0=2'b00, s1=2'b01, s2=2'b10, s3=2'b11;
+always@(x,present_state)
+case(present_state)
+s0: if (x)
+next_state=s1;
+else
+next_state=s0;
+s1: if (x)
+next_state=s1;
+else
+next_state=s2;
+s2: if (x)
+next_state=s3;
+else
+next_state=s0;
+s3: if (x)
+next_state=s1;
+else
+next_state=s2;
+endcase
+always@(negedge rst, posedge clk)
+if (rst)
+present_state<=s0;
+else
+present_state<=next_state;
+assign z=(present_state==s3);
+endmodule
+ ~~~
 
-----Type Verilog Code
+# OUTPUT:
 
-OUTPUT:
+![image](https://github.com/Thanish77/VLSI-LAB-EXP-5/assets/161430773/65bf2a75-b0aa-4dc3-b36e-f01a8e200cd8)
 
------Place a Waveform Generated from Xilinx ISE------------
 
-RESULT:
+# RESULT:
 
+  Thus the simulation and implementation of Finite State MOORE Machine is is done and the outputs are verified successfully.
 
 
