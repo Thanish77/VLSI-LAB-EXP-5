@@ -1,7 +1,9 @@
-# VLSI-LAB-EXP-5
+EXP.NO:05
+DATE:23/04/2024
 SIMULATION AND IMPLEMENTATION OF FINITE STATE MACHINE
 
-AIM: To simulate and synthesis finite state machine using Xilinx ISE.
+AIM: 
+To simulate and synthesis finite state machine using Xilinx ISE.
 
 **APPARATUS REQUIRED: **
 
