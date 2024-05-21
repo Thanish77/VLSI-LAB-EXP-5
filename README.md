@@ -67,11 +67,13 @@ assign z=(present_state==s3);
 endmodule
  ~~~
 
+
 # OUTPUT:
 
 ![image](https://github.com/Thanish77/VLSI-LAB-EXP-5/assets/161430773/65bf2a75-b0aa-4dc3-b36e-f01a8e200cd8)
 
 
+ 
 # RESULT:
 
   Thus the simulation and implementation of Finite State MOORE Machine is is done and the outputs are verified successfully.
